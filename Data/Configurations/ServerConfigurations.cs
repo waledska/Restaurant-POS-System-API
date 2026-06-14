@@ -4,6 +4,27 @@ using WebApisApp.Models;
 
 namespace WebApisApp.Data.Configurations
 {
+    // ─── GlobalSettings ──────────────────────────────────────────────────────────
+    public class GlobalSettingsConfiguration : IEntityTypeConfiguration<GlobalSettings>
+    {
+        public void Configure(EntityTypeBuilder<GlobalSettings> builder)
+        {
+            builder.ToTable("GlobalSettings");
+            builder.HasKey(x => x.SettingId);
+            builder.HasIndex(x => x.SettingKey).IsUnique().HasDatabaseName("UX_GlobalSettings_SettingKey");
+        }
+    }
+
+    // ─── Tenant ──────────────────────────────────────────────────────────────────
+    public class TenantConfiguration : IEntityTypeConfiguration<Tenant>
+    {
+        public void Configure(EntityTypeBuilder<Tenant> builder)
+        {
+            builder.ToTable("Tenants");
+            builder.HasKey(x => x.TenantId);
+        }
+    }
+
     // ─── 19) Devices ─────────────────────────────────────────────────────────────
     public class DeviceConfiguration : IEntityTypeConfiguration<Device>
     {

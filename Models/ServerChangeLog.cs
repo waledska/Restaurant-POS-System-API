@@ -11,6 +11,7 @@ namespace WebApisApp.Models
         public Guid? LocationId { get; set; }
         public Guid? ChangedByUserId { get; set; }
         public Guid? DeviceId { get; set; }
+        public Guid? OriginLocationId { get; set; }
 
         // Navigation
         public Location? Location { get; set; }

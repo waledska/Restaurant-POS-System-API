@@ -10,8 +10,10 @@ namespace WebApisApp.Models
         public Guid UserId { get; set; }
         public Guid? DeviceId { get; set; }
         public string? Notes { get; set; }
+        public Guid? LocationId { get; set; }
 
         // Navigation
         public User User { get; set; } = null!;
+        public Location? Location { get; set; }
     }
 }

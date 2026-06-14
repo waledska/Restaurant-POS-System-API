@@ -99,6 +99,12 @@ namespace WebApisApp.Helpers
                     {
                         entity.CreatedAt = now;
                     }
+                    
+                    // Set OriginLocationId if not provided (e.g., from server admin dashboard)
+                    if (entity is BaseEntity baseEntity && baseEntity.OriginLocationId == null)
+                    {
+                        baseEntity.OriginLocationId = locationId;
+                    }
                 }
 
                 entity.UpdatedAt = now;
@@ -141,6 +147,7 @@ namespace WebApisApp.Helpers
                     OperationType = operationType,
                     ChangedAt = now,
                     LocationId = locationId,
+                    OriginLocationId = (entity as BaseEntity)?.OriginLocationId ?? locationId,
                     ChangedByUserId = userId,
                     DeviceId = deviceId
                 };

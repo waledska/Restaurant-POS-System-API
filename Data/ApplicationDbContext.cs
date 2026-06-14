@@ -33,7 +33,8 @@ namespace WebApisApp.Data
 
         // Server-Only Tables
         public DbSet<Device> Devices { get; set; } = null!;
-        public DbSet<ServerChangeLog> ServerChangeLog { get; set; } = null!;
+        public DbSet<GlobalSettings> GlobalSettings { get; set; } = null!;
+        public DbSet<Tenant> Tenants { get; set; } = null!;
         public DbSet<PasswordResetOtp> PasswordResetOtps { get; set; } = null!;
         public DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
         public DbSet<BlacklistedToken> BlacklistedTokens { get; set; } = null!;

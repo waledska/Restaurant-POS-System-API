@@ -5,6 +5,9 @@ namespace WebApisApp.Models
         public Guid DeviceId { get; set; }
         public string DeviceCode { get; set; } = string.Empty;
         public string DeviceName { get; set; } = string.Empty;
+
+        public string MachineName { get; set; } = string.Empty;
+        public string DeviceRole { get; set; } = "Client"; // "Master" or "Client"
         public Guid LocationId { get; set; }
         public bool IsActive { get; set; }
         public DateTime? LastSeenAt { get; set; }

@@ -20,6 +20,11 @@ namespace WebApisApp.Data.Configurations
                 .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.HasOne(x => x.Location)
+                .WithMany()
+                .HasForeignKey(x => x.LocationId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             // Keep lean — AuditLogs grows continuously
             builder.HasIndex(x => new { x.TableName, x.RecordId, x.ActionDate })
                 .HasDatabaseName("IX_AuditLogs_TableName_RecordId_ActionDate");
